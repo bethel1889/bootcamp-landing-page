@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CreditCard, MessageCircle, CheckCircle } from 'lucide-react';
+import { X, CreditCard, MessageCircle, CheckCircle, ClipboardCopy, Check } from 'lucide-react';
 
 interface EnrollmentModalProps {
   isOpen: boolean;
@@ -8,9 +8,20 @@ interface EnrollmentModalProps {
 }
 
 const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
   const handleWhatsAppClick = () => {
-    // Replace with your actual WhatsApp number
-    window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank');
+    window.open('https://api.whatsapp.com/send/?phone=2348118058228&text&type=phone_number&app_absent=0', '_blank');
+  };
+
+  const handleCopy = () => {
+    const accountNumber = '8118058228';
+    navigator.clipboard.writeText(accountNumber).then(() => {
+      setIsCopied(true);
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 2500); // Revert the text back after 2.5 seconds
+    });
   };
 
   return (
@@ -23,7 +34,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-lg" // Enhanced blur
+            className="absolute inset-0 bg-black/80 backdrop-blur-lg"
           />
 
           {/* Modal */}
@@ -66,23 +77,36 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
                   </div>
                 </div>
                 <p className="text-[#BDBDBD] mb-4">
-                  {/* Updated payment text */}
                   Transfer the first installment of <span className="text-[#FF6B00] font-semibold">₦100,000</span> to the account below to begin Session 1.
                 </p>
                 <div className="bg-black/40 rounded-xl p-4 border border-white/10">
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-[#BDBDBD]">Bank Name:</span>
-                      <span className="text-[#F5F5F5] font-medium">[Your Bank Name Here]</span>
+                  <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 text-sm">
+                    <span className="font-medium text-[#BDBDBD] text-right self-center">Bank Name:</span>
+                    <span className="font-semibold text-[#F5F5F5] text-left self-center">OPAY</span>
+
+                    <span className="font-medium text-[#BDBDBD] text-right self-center">Account Number:</span>
+                    {/* Account number with copy button */}
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-[#F5F5F5]">8118058228</span>
+                      <button
+                        onClick={handleCopy}
+                        className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded-md transition-all duration-300 ${
+                          isCopied 
+                            ? 'bg-green-500/20 text-green-400' 
+                            : 'bg-white/10 hover:bg-white/20 text-[#BDBDBD]'
+                        }`}
+                      >
+                        {isCopied ? (
+                          <Check size={14} />
+                        ) : (
+                          <ClipboardCopy size={14} />
+                        )}
+                        {isCopied ? 'Copied!' : 'Copy'}
+                      </button>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-[#BDBDBD]">Account Number:</span>
-                      <span className="text-[#F5F5F5] font-medium">[Your Account Number Here]</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-[#BDBDBD]">Account Name:</span>
-                      <span className="text-[#F5F5F5] font-medium">[Your Account Name Here]</span>
-                    </div>
+
+                    <span className="font-medium text-[#BDBDBD] text-right self-start pt-1">Account Name:</span>
+                    <span className="font-semibold text-[#F5F5F5] text-left self-start pt-1">IBEAGHA BETHEL EMMANUEL</span>
                   </div>
                 </div>
               </div>
@@ -111,8 +135,6 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
                   Verify on WhatsApp
                 </motion.button>
               </div>
-
-              {/* Step 3 Removed */}
             </div>
 
             {/* Footer */}
