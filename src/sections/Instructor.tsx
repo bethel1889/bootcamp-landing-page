@@ -16,7 +16,7 @@ const Instructor = () => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F5F5] mb-6">
@@ -28,12 +28,12 @@ const Instructor = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/10">
+            <div className="bg-gradient-to-br from-white/5 to-transparent backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/10 hover:border-[#FF6B00]/50 transition-all duration-300">
               <div className="flex items-center mb-8">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#FF8533] rounded-2xl flex items-center justify-center mr-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#FF8533] rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
                   <Code size={40} className="text-white" />
                 </div>
                 <div>
@@ -45,32 +45,23 @@ const Instructor = () => {
                 </div>
               </div>
 
-              <p className="text-lg text-[#BDBDBD] leading-relaxed mb-8">
+              <p className="text-lg text-[#BDBDBD] leading-relaxed">
                 Your lead instructor is a seasoned programmer and two-time national hackathon winner, 
                 dedicated to mentoring the next generation of tech talent. With years of industry 
                 experience and a passion for education, they bring real-world insights to every lesson.
               </p>
-
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-2xl font-bold text-[#FF6B00] mb-2">500+</div>
-                  <p className="text-[#BDBDBD] text-sm">Students Mentored</p>
-                </div>
-                <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-2xl font-bold text-[#4A90E2] mb-2">8+</div>
-                  <p className="text-[#BDBDBD] text-sm">Years Experience</p>
-                </div>
-              </div>
+              
+              {/* Metrics grid removed for simplicity */}
             </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+            <div className="bg-gradient-to-br from-white/5 to-transparent backdrop-blur-lg rounded-3xl p-8 border border-white/10">
               <div className="flex items-center mb-6">
                 <Users className="text-[#FF6B00] mr-4" size={32} />
                 <h3 className="text-2xl font-bold text-[#F5F5F5]">Team & Collaboration</h3>
@@ -107,15 +98,15 @@ const Instructor = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
+              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-[#FF6B00]/50 transition-all duration-300">
                 <Award className="text-[#FF6B00] mx-auto mb-2" size={24} />
                 <p className="text-xs text-[#BDBDBD]">Expert Mentorship</p>
               </div>
-              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
+              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-[#4A90E2]/50 transition-all duration-300">
                 <Users className="text-[#4A90E2] mx-auto mb-2" size={24} />
                 <p className="text-xs text-[#BDBDBD]">Community Support</p>
               </div>
-              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
+              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-[#FF6B00]/50 transition-all duration-300">
                 <Trophy className="text-[#FF6B00] mx-auto mb-2" size={24} />
                 <p className="text-xs text-[#BDBDBD]">Proven Results</p>
               </div>

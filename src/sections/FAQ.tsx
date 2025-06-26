@@ -14,27 +14,27 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Is this for absolute beginners?",
-      answer: "Yes! We start from the absolute basics. All you need is a passion for learning and dedication to complete the program. No prior programming experience is required."
+      answer: "Yes! We start from the absolute basics. The first 60-day session covers all the fundamentals. All you need is a passion for learning and dedication. No prior programming experience is required."
     },
     {
       question: "What do I get upon completion?",
-      answer: "You receive a bootcamp completion certificate and, upon successfully finishing the required modules, a chance to earn a certificate directly from Harvard for the Python portion of the course."
+      answer: "You receive a bootcamp completion certificate for the full 120-day program. Upon successfully finishing the required modules, you also get the unique opportunity to earn a certificate directly from Harvard for the Python portion of the course."
+    },
+    {
+      question: "How is the program and payment structured?",
+      answer: "The 120-day bootcamp is split into two 60-day sessions. The first session covers fundamentals, and the second covers advanced topics. Payment is made per session (₦100,000 each), allowing for flexibility."
     },
     {
       question: "What kind of support will I receive?",
-      answer: "The program includes personalized coaching, one-on-one mentorship sessions, access to a community of fellow learners, and 24/7 support through our dedicated channels."
+      answer: "The program includes personalized coaching, one-on-one mentorship sessions, access to a community of fellow learners, and 24/7 support through our dedicated channels across both sessions."
     },
     {
       question: "Do I need a powerful computer?",
       answer: "No. We will utilize cloud-based development environments like GitHub Codespaces, so any modern computer with an internet connection is sufficient to complete the entire program."
     },
     {
-      question: "How much time should I dedicate daily?",
-      answer: "We recommend 2-3 hours of focused study per day. The program is designed to be flexible, allowing you to learn at your own pace while meeting weekly milestones."
-    },
-    {
       question: "Will I be job-ready after completion?",
-      answer: "Absolutely! Our curriculum is designed with industry needs in mind. You'll build a portfolio of real projects and gain the skills that employers are actively seeking in today's market."
+      answer: "Absolutely! Our full 120-day curriculum is designed with industry needs in mind. You'll build a portfolio of real projects and gain the skills that employers are actively seeking."
     }
   ];
 
@@ -49,7 +49,7 @@ const FAQ = () => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
@@ -66,14 +66,12 @@ const FAQ = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-gradient-to-br from-white/5 to-transparent backdrop-blur-lg rounded-2xl border border-white/10 hover:border-[#FF6B00]/50 overflow-hidden"
             >
               <motion.button
                 onClick={() => toggleFAQ(index)}
                 className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-all duration-300 group"
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
               >
                 <h3 className="text-lg font-semibold text-[#F5F5F5] group-hover:text-[#FF6B00] transition-colors duration-300 pr-4">
                   {faq.question}
@@ -98,11 +96,11 @@ const FAQ = () => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-6">
-                      <div className="w-full h-px bg-gradient-to-r from-[#FF6B00]/20 to-[#4A90E2]/20 mb-4"></div>
+                      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF6B00]/30 to-transparent mb-4"></div>
                       <p className="text-[#BDBDBD] leading-relaxed">
                         {faq.answer}
                       </p>

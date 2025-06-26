@@ -35,7 +35,7 @@ const Navigation = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-[#0A0A0A]/95 backdrop-blur-md py-4' 
+          ? 'bg-black/70 backdrop-blur-lg py-4' // Updated for new theme
           : 'bg-transparent py-6'
       }`}
     >
@@ -59,7 +59,7 @@ const Navigation = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-[#FF6B00] ${
                   item.label === 'Enroll Now' 
-                    ? 'bg-[#FF6B00] text-white px-6 py-2 rounded-full hover:bg-[#FF6B00]/90' 
+                    ? 'bg-[#FF6B00] text-white px-6 py-2 rounded-full hover:bg-[#FF6B00]/90 hover:text-white' // FIX: Added hover:text-white
                     : 'text-[#BDBDBD]'
                 }`}
               >
@@ -86,7 +86,7 @@ const Navigation = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 bg-[#0A0A0A]/95 backdrop-blur-md rounded-lg p-4"
+            className="md:hidden mt-4 bg-black/70 backdrop-blur-lg rounded-lg p-4" // Updated for new theme
           >
             {navItems.map((item) => (
               <motion.button

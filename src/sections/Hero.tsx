@@ -41,6 +41,7 @@ const Hero: React.FC<HeroProps> = ({ onEnrollClick }) => {
     }
 
     const animate = () => {
+      if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, index) => {
@@ -103,18 +104,18 @@ const Hero: React.FC<HeroProps> = ({ onEnrollClick }) => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }} // Faster animation
         >
           <motion.h1 
             className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.2 }} // Slightly longer for impact
           >
             <motion.span
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.3 }} // Faster animation
               className="text-[#FF6B00] block"
             >
               120-Day
@@ -122,7 +123,7 @@ const Hero: React.FC<HeroProps> = ({ onEnrollClick }) => {
             <motion.span
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: 0.5, delay: 0.4 }} // Faster animation
               className="text-[#F5F5F5] block"
             >
               Web Development
@@ -130,7 +131,7 @@ const Hero: React.FC<HeroProps> = ({ onEnrollClick }) => {
             <motion.span
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
+              transition={{ duration: 0.5, delay: 0.5 }} // Faster animation
               className="text-[#4A90E2] block"
             >
               and AI Bootcamp
@@ -140,7 +141,7 @@ const Hero: React.FC<HeroProps> = ({ onEnrollClick }) => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
+            transition={{ duration: 0.5, delay: 0.6 }} // Faster animation
             className="text-lg sm:text-xl lg:text-2xl text-[#BDBDBD] mb-12 max-w-4xl mx-auto leading-relaxed"
           >
             Master the essentials of full-stack web development and Artificial Intelligence to launch your career in tech.
@@ -149,10 +150,10 @@ const Hero: React.FC<HeroProps> = ({ onEnrollClick }) => {
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1.5 }}
+            transition={{ duration: 0.5, delay: 0.7 }} // Faster animation
             whileHover={{ 
               scale: 1.05,
-              boxShadow: "0 0 30px rgba(255, 107, 0, 0.5)"
+              boxShadow: "0 0 40px rgba(255, 107, 0, 0.5)" // Enhanced glow
             }}
             whileTap={{ scale: 0.95 }}
             onClick={onEnrollClick}
@@ -167,7 +168,7 @@ const Hero: React.FC<HeroProps> = ({ onEnrollClick }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 0.5, delay: 1 }} // Faster animation
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
         onClick={scrollToNext}
       >

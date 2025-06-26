@@ -7,7 +7,6 @@ import Curriculum from './sections/Curriculum';
 import Instructor from './sections/Instructor';
 import FAQ from './sections/FAQ';
 import Pricing from './sections/Pricing';
-import Registration from './sections/Registration';
 import Footer from './components/Footer';
 import EnrollmentModal from './components/EnrollmentModal';
 import { useState } from 'react';
@@ -16,7 +15,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-[#0A0A0A] text-white overflow-x-hidden">
+    <div className="bg-[#000000] text-white overflow-x-hidden">
       <Navigation />
       <main>
         <Hero onEnrollClick={() => setIsModalOpen(true)} />
@@ -26,7 +25,6 @@ function App() {
         <Instructor />
         <FAQ />
         <Pricing onEnrollClick={() => setIsModalOpen(true)} />
-        <Registration />
       </main>
       <Footer />
       <EnrollmentModal 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CreditCard, MessageCircle, FileText, CheckCircle } from 'lucide-react';
+import { X, CreditCard, MessageCircle, CheckCircle } from 'lucide-react';
 
 interface EnrollmentModalProps {
   isOpen: boolean;
@@ -13,11 +13,6 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
     window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank');
   };
 
-  const handleFormClick = () => {
-    // Replace with your actual form URL
-    window.open('[YOUR_FORM_URL]', '_blank');
-  };
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -28,7 +23,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/80 backdrop-blur-lg" // Enhanced blur
           />
 
           {/* Modal */}
@@ -37,7 +32,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/20"
+            className="relative bg-gradient-to-br from-[#020202] to-[#1A1A1A] rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/20"
           >
             {/* Close Button */}
             <button
@@ -53,14 +48,14 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
                 Complete Your <span className="text-[#FF6B00]">Enrollment</span>
               </h2>
               <p className="text-[#BDBDBD]">
-                Follow these simple steps to secure your spot in the bootcamp
+                Follow these two simple steps to secure your spot for the first session.
               </p>
             </div>
 
             {/* Steps */}
             <div className="space-y-8">
               {/* Step 1 */}
-              <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-6 border border-white/10">
+              <div className="bg-gradient-to-br from-white/10 to-transparent rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-[#FF6B00] rounded-full flex items-center justify-center mr-4">
                     <span className="text-white font-bold">1</span>
@@ -71,9 +66,10 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
                   </div>
                 </div>
                 <p className="text-[#BDBDBD] mb-4">
-                  Transfer the course fee of <span className="text-[#FF6B00] font-semibold">₦200,000</span> to the account below:
+                  {/* Updated payment text */}
+                  Transfer the first installment of <span className="text-[#FF6B00] font-semibold">₦100,000</span> to the account below to begin Session 1.
                 </p>
-                <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="bg-black/40 rounded-xl p-4 border border-white/10">
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-[#BDBDBD]">Bank Name:</span>
@@ -92,18 +88,18 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
               </div>
 
               {/* Step 2 */}
-              <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-6 border border-white/10">
+              <div className="bg-gradient-to-br from-white/10 to-transparent rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-[#4A90E2] rounded-full flex items-center justify-center mr-4">
                     <span className="text-white font-bold">2</span>
                   </div>
                   <div className="flex items-center">
                     <MessageCircle className="text-[#4A90E2] mr-2" size={24} />
-                    <h3 className="text-xl font-semibold text-[#F5F5F5]">Verify Payment</h3>
+                    <h3 className="text-xl font-semibold text-[#F5F5F5]">Verify & Register</h3>
                   </div>
                 </div>
                 <p className="text-[#BDBDBD] mb-4">
-                  Send a screenshot of your payment receipt to our verification team on WhatsApp.
+                  Send your payment screenshot to our team on WhatsApp. We'll verify it and provide you with the final registration link.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -116,30 +112,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose }) =>
                 </motion.button>
               </div>
 
-              {/* Step 3 */}
-              <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-6 border border-white/10">
-                <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-[#FF6B00] rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">3</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FileText className="text-[#FF6B00] mr-2" size={24} />
-                    <h3 className="text-xl font-semibold text-[#F5F5F5]">Complete Registration</h3>
-                  </div>
-                </div>
-                <p className="text-[#BDBDBD] mb-4">
-                  Finally, fill out the registration form to be added to the student group.
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={handleFormClick}
-                  className="bg-gradient-to-r from-[#4A90E2] to-[#6BA3E8] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 inline-flex items-center"
-                >
-                  <FileText className="mr-2" size={20} />
-                  Go to Registration Form
-                </motion.button>
-              </div>
+              {/* Step 3 Removed */}
             </div>
 
             {/* Footer */}

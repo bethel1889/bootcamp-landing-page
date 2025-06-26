@@ -14,14 +14,14 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
   });
 
   const features = [
-    "17-week comprehensive curriculum",
+    "120-day (2x 60-day sessions) comprehensive curriculum", // Updated
     "Harvard-level learning resources",
     "1-on-1 mentorship sessions",
     "Real-world project portfolio",
     "Harvard certificate opportunity",
+    "Internship opportunities for top-performing students", // Added
     "Career guidance & job placement support",
-    "Lifetime access to community",
-    "24/7 technical support"
+    "Lifetime access to community & 24/7 support" // Merged
   ];
 
   return (
@@ -31,45 +31,45 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F5F5] mb-6">
-            Transform Your Career in{' '}
-            <span className="text-[#FF6B00]">4 Months</span>
+            Flexible & Powerful Investment in Your Future
           </h2>
           <p className="text-lg sm:text-xl text-[#BDBDBD] max-w-3xl mx-auto leading-relaxed">
-            Invest in your future with our comprehensive bootcamp program
+            Our program is structured in two 60-day sessions to provide a deep, manageable learning experience.
           </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="relative"
         >
           {/* Glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B00]/20 to-[#4A90E2]/20 rounded-3xl blur-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B00]/20 to-[#4A90E2]/20 rounded-3xl blur-xl -z-10"></div>
           
-          <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/20">
+          <div className="relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#FF8533] rounded-2xl mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#FF8533] rounded-2xl mb-6 pulse-glow">
                 <Star size={40} className="text-white" />
               </div>
               <h3 className="text-2xl lg:text-3xl font-bold text-[#F5F5F5] mb-4">
-                Complete Bootcamp Program
+                Full-Stack & AI Bootcamp
               </h3>
               
-              <div className="flex items-center justify-center space-x-8 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-8 space-y-4 sm:space-y-0 mb-8">
                 <div className="flex items-center">
                   <Clock className="text-[#4A90E2] mr-2" size={24} />
-                  <span className="text-lg text-[#BDBDBD]">Four (4) months</span>
+                  <span className="text-lg text-[#BDBDBD]">120-Day Program</span>
                 </div>
-                <div className="w-px h-8 bg-white/20"></div>
+                <div className="w-px h-8 bg-white/20 hidden sm:block"></div>
                 <div className="flex items-center">
                   <DollarSign className="text-[#FF6B00] mr-2" size={24} />
-                  <span className="text-3xl font-bold text-[#F5F5F5]">₦200,000</span>
+                  <span className="text-3xl font-bold text-[#F5F5F5]">₦100,000</span>
+                  <span className="text-lg text-[#BDBDBD] ml-2">/ session</span>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
                   className="flex items-center p-3 bg-white/5 rounded-xl border border-white/10"
                 >
                   <CheckCircle className="text-[#FF6B00] mr-3 flex-shrink-0" size={20} />
@@ -93,17 +93,21 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
               <motion.button
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 0 40px rgba(255, 107, 0, 0.6)"
+                  boxShadow: "0 0 40px rgba(255, 107, 0, 0.5)" // Enhanced glow
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onEnrollClick}
                 className="bg-gradient-to-r from-[#FF6B00] to-[#FF8533] text-white px-12 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition-all duration-300 relative overflow-hidden group"
               >
-                <span className="relative z-10">Secure Your Spot Now</span>
+                <span className="relative z-10">Enroll for First Session</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF8533] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.button>
               
+              {/* Added Payment Plan Info */}
               <p className="text-sm text-[#BDBDBD] mt-4">
+                Flexible payment plan available: Pay in two installments of ₦100,000 each.
+              </p>
+              <p className="text-xs text-[#BDBDBD]/60 mt-1">
                 Limited spots available • Secure payment process
               </p>
             </div>

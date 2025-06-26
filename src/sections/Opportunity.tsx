@@ -34,7 +34,7 @@ const Opportunity = () => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }} // Faster animation
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F5F5] mb-6">
@@ -53,12 +53,12 @@ const Opportunity = () => {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }} // Faster animation
               whileHover={{ 
                 y: -10,
                 transition: { duration: 0.3 }
               }}
-              className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#FF6B00]/30 transition-all duration-300 group"
+              className="bg-gradient-to-br from-white/5 to-transparent backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-[#FF6B00]/50 transition-all duration-300 group" // Enhanced glassmorphism
             >
               <div className="mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B00] to-[#FF8533] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
