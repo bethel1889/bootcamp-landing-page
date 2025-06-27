@@ -1,6 +1,3 @@
-// File: src/components/Navigation.tsx
-// Purpose: Modified the component to accept an onEnrollClick prop. The "Enroll Now" button in both desktop and mobile views now calls this function to open the modal directly, instead of scrolling to the pricing section.
-// Dependencies: None
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';

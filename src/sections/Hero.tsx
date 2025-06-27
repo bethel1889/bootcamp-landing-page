@@ -1,6 +1,3 @@
-// File: src/sections/Hero.tsx
-// Purpose: Optimized performance and UI. Animations are now faster ("snappier"). The canvas particle count is reduced on mobile devices to improve performance. The main CTA button size is now responsive, using a smaller size for mobile and a larger one for desktops.
-// Dependencies: None
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';

@@ -1,6 +1,3 @@
-// File: src/sections/Instructor.tsx
-// Purpose: Optimized the Framer Motion animations by reducing the duration and adding an "easeOut" easing function to make them feel faster and more responsive.
-// Dependencies: None
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

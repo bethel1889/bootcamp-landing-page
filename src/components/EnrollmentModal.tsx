@@ -1,6 +1,3 @@
-// File: src/components/EnrollmentModal.tsx
-// Purpose: Updated the styling of payment details to have uppercase labels on their own line, followed by the value, as requested.
-// Dependencies: None
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CreditCard, MessageCircle, CheckCircle, ClipboardCopy, Check } from 'lucide-react';

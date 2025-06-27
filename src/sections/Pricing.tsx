@@ -1,6 +1,3 @@
-// File: src/sections/Pricing.tsx
-// Purpose: Clarified the pricing structure by changing the heading and adding an explicit note about the two-part payment. Created urgency with a "spots left" callout. The main CTA button is now responsive for a better mobile experience. Animations have been made faster.
-// Dependencies: None
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

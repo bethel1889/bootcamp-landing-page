@@ -1,6 +1,3 @@
-// File: src/App.tsx
-// Purpose: Passed the onEnrollClick function to the Navigation component, allowing it to open the enrollment modal directly.
-// Dependencies: None
 import React from 'react';
 import Navigation from './components/Navigation';
 import Hero from './sections/Hero';
