@@ -67,14 +67,14 @@ body {
 }
 
 .float {
-  animation: float 2.5s ease-in-out infinite; /* Faster float animation */
+  animation: float 1.8s ease-in-out infinite; /* Faster float animation */
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 40px rgba(255, 107, 0, 0.4); }
-  50% { box-shadow: 0 0 60px rgba(255, 107, 0, 0.7); } /* Amplified glow */
+  0%, 100% { box-shadow: 0 0 35px rgba(255, 107, 0, 0.3); }
+  50% { box-shadow: 0 0 55px rgba(255, 107, 0, 0.6); } /* Amplified glow - slightly subtler */
 }
 
 .pulse-glow {
-  animation: pulse-glow 1.5s ease-in-out infinite; /* Faster pulse animation */
+  animation: pulse-glow 1.2s ease-in-out infinite; /* Faster pulse animation */
 }

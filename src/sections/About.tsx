@@ -16,7 +16,7 @@ const About = () => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F5F5] mb-6">
@@ -29,7 +29,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
           >
             <div className="bg-gradient-to-br from-white/5 to-transparent backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/10 hover:border-[#FF6B00]/50">
               <div className="flex items-center mb-6">
@@ -60,7 +60,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
             className="space-y-8 flex flex-col items-center justify-center" // Centering content
           >
             {/* Re-aligned University Logos */}

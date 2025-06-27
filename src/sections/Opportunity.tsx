@@ -1,3 +1,6 @@
+// File: src/sections/Opportunity.tsx
+// Purpose: Optimized the Framer Motion animations by reducing the duration and adding an "easeOut" easing function to make them feel faster and more responsive.
+// Dependencies: None
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -34,7 +37,7 @@ const Opportunity = () => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }} // Faster animation
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F5F5] mb-6">
@@ -53,7 +56,7 @@ const Opportunity = () => {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }} // Faster animation
+              transition={{ duration: 0.35, delay: index * 0.1, ease: "easeOut" }}
               whileHover={{ 
                 y: -10,
                 transition: { duration: 0.3 }

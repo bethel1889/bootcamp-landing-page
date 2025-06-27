@@ -1,3 +1,6 @@
+// File: src/sections/FAQ.tsx
+// Purpose: Optimized the Framer Motion animations by reducing the duration and adding an "easeOut" easing function to make them feel faster and more responsive.
+// Dependencies: None
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -49,7 +52,7 @@ const FAQ = () => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
@@ -66,7 +69,7 @@ const FAQ = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.35, delay: index * 0.1, ease: 'easeOut' }}
               className="bg-gradient-to-br from-white/5 to-transparent backdrop-blur-lg rounded-2xl border border-white/10 hover:border-[#FF6B00]/50 overflow-hidden"
             >
               <motion.button

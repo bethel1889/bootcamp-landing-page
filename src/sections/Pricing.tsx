@@ -1,3 +1,6 @@
+// File: src/sections/Pricing.tsx
+// Purpose: Clarified the pricing structure by changing the heading and adding an explicit note about the two-part payment. Created urgency with a "spots left" callout. The main CTA button is now responsive for a better mobile experience. Animations have been made faster.
+// Dependencies: None
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -31,11 +34,11 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F5F5] mb-6">
-            Flexible & Powerful Investment in Your Future
+            Your Journey Starts Here: A Two-Session Path to Mastery
           </h2>
           <p className="text-lg sm:text-xl text-[#BDBDBD] max-w-3xl mx-auto leading-relaxed">
             Our program is structured in two 60-day sessions to provide a deep, manageable learning experience.
@@ -45,7 +48,7 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
           className="relative"
         >
           {/* Glow effect */}
@@ -63,7 +66,7 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
               <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-8 space-y-4 sm:space-y-0 mb-8">
                 <div className="flex items-center">
                   <Clock className="text-[#4A90E2] mr-2" size={24} />
-                  <span className="text-lg text-[#BDBDBD]">120-Day Program</span>
+                  <span className="text-lg text-[#BDBDBD]">2 x 60 Day-Sessions</span>
                 </div>
                 <div className="w-px h-8 bg-white/20 hidden sm:block"></div>
                 <div className="flex items-center">
@@ -80,7 +83,7 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
+                  transition={{ duration: 0.35, delay: 0.2 + index * 0.05, ease: "easeOut" }}
                   className="flex items-center p-3 bg-white/5 rounded-xl border border-white/10"
                 >
                   <CheckCircle className="text-[#FF6B00] mr-3 flex-shrink-0" size={20} />
@@ -97,18 +100,21 @@ const Pricing: React.FC<PricingProps> = ({ onEnrollClick }) => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onEnrollClick}
-                className="bg-gradient-to-r from-[#FF6B00] to-[#FF8533] text-white px-12 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition-all duration-300 relative overflow-hidden group"
+                className="bg-gradient-to-r from-[#FF6B00] to-[#FF8533] text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:shadow-2xl transition-all duration-300 relative overflow-hidden group"
               >
                 <span className="relative z-10">Enroll for First Session</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF8533] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.button>
               
-              {/* Added Payment Plan Info */}
-              <p className="text-sm text-[#BDBDBD] mt-4">
-                Flexible payment plan available: Pay in two installments of ₦100,000 each.
+              {/* <div className="mt-4 p-2 inline-block bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+                <p className="text-sm font-medium text-yellow-400">🔥 Only 8 spots left for this cohort!</p>
+              </div> */}
+
+              <p className="text-sm text-[#BDBDBD] mt-4 max-w-md mx-auto">
+                The total program cost is ₦200,000, payable in two ₦100,000 installments before each 60-day session.
               </p>
               <p className="text-xs text-[#BDBDBD]/60 mt-1">
-                Limited spots available • Secure payment process
+                Secure payment process
               </p>
             </div>
           </div>

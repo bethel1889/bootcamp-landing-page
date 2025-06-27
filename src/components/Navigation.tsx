@@ -1,8 +1,15 @@
+// File: src/components/Navigation.tsx
+// Purpose: Modified the component to accept an onEnrollClick prop. The "Enroll Now" button in both desktop and mobile views now calls this function to open the modal directly, instead of scrolling to the pricing section.
+// Dependencies: None
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-const Navigation = () => {
+interface NavigationProps {
+  onEnrollClick: () => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ onEnrollClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -19,6 +26,15 @@ const Navigation = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleNavClick = (id: string, label: string) => {
+    if (label === 'Enroll Now') {
+      onEnrollClick();
+      setIsMobileMenuOpen(false);
+    } else {
+      scrollToSection(id);
     }
   };
 
@@ -56,7 +72,7 @@ const Navigation = () => {
                 key={item.id}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id, item.label)}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-[#FF6B00] ${
                   item.label === 'Enroll Now' 
                     ? 'bg-[#FF6B00] text-white px-6 py-2 rounded-full hover:bg-[#FF6B00]/90 hover:text-white' // FIX: Added hover:text-white
@@ -92,7 +108,7 @@ const Navigation = () => {
               <motion.button
                 key={item.id}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id, item.label)}
                 className={`block w-full text-left py-3 px-4 rounded-lg transition-colors duration-200 ${
                   item.label === 'Enroll Now'
                     ? 'bg-[#FF6B00] text-white hover:bg-[#FF6B00]/90 mt-2'
